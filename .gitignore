@@ -1,0 +1,58 @@
+# ==========================================
+# ROOT & ENVIRONMENT
+# ==========================================
+.env
+.env.local
+.env.*.local
+
+# OS Specific
+.DS_Store
+Thumbs.db
+*.pem
+
+# ==========================================
+# FRONTEND (Next.js / Node)
+# ==========================================
+# Dependencies 
+frontend/node_modules/
+frontend/.pnp
+frontend/.pnp.*
+frontend/.yarn/*
+!frontend/.yarn/patches
+!frontend/.yarn/plugins
+!frontend/.yarn/releases
+!frontend/.yarn/versions
+
+# Next.js build & output
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/*.tsbuildinfo
+frontend/next-env.d.ts
+
+# Debug logs
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/.pnpm-debug.log*
+
+# Vercel
+frontend/.vercel
+
+# ==========================================
+# BACKEND (Python / FastAPI)
+# ==========================================
+backend/__pycache__/
+backend/*.pyc
+backend/venv/
+backend/env/
+backend/chroma_db/
+backend/documents/*.pdf
+# If you ever copy the env into the backend folder:
+backend/.env
+
+# ==========================================
+# TOOLS
+# ==========================================
+.vscode/
+.idea/
