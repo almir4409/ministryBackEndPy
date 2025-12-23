@@ -26,7 +26,7 @@ export default function Home() {
 
       {/*Expanded*/}
       {isChatOpen && (
-        <div className={`fixed p-6 transition-all duration-300 ease-in-out ${isExpanded ? "-bottom-6 -right-6" : "bottom-5 right-5"}`}>
+        <div className={`fixed p-6 transition-all duration-300 ease-in-out ${isExpanded ? "-bottom-6 -right-6" : "-bottom-3 -right-3"}`}>
           <ChatBox onClose={() => setIsChatOpen(false)} isExpanded={isExpanded} onToggleExpand={() => setIsExpanded(prev => !prev)} />
         </div>
       )}

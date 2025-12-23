@@ -14,7 +14,7 @@ const ChatBoxMessage: React.FC<ChatBoxMessageProps> = ({ message }) => {
   if (isAssistant) {
     return (
       <div className="flex items-end mb-4">
-        <div className="flex-shrink-0 mr-3">
+        <div className="shrink-0 mr-3">
           <Image
             src="/assistant-avatar.png"
             alt="Assistant Avatar"
@@ -39,7 +39,7 @@ const ChatBoxMessage: React.FC<ChatBoxMessageProps> = ({ message }) => {
       <div className="bg-primary text-white p-3 rounded-lg max-w-[75%] text-sm shadow-sm">
         {message.content}
       </div>
-      <div className="ml-3 flex-shrink-0 flex items-center justify-center w-8 h-8 bg-primary rounded-lg">
+      <div className="ml-3 shrink-0 flex items-center justify-center w-8 h-8 bg-primary rounded-lg">
         <HiOutlineUser className="text-white w-4 h-4" />
       </div>
     </div>

@@ -27,7 +27,6 @@ const ChatBox: React.FC<ChatBoxProps> = ({
 
   const handleLanguageToggle = (lang: "MK" | "EN") => {
     setLanguage(lang);
-    // Future: Load different text/suggestions based on language
   };
 
   const handleSendMessage = async (text: string) => {
@@ -51,7 +50,7 @@ const ChatBox: React.FC<ChatBoxProps> = ({
     setMessages((prev) => [...prev, thinkingMsg]);
 
     try {
-      // 2. Perform the actual API call
+      // 2. Send the message to the backend API
       const response = await fetch(`${API_URL}/ask`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -65,7 +64,7 @@ const ChatBox: React.FC<ChatBoxProps> = ({
 
       const data = await response.json();
 
-      // 3. Add the real bot response from the server
+      // 3. Add the bot response from the server
       const botReply: Message = {
         id: `assistant-${Date.now()}`,
         role: "assistant",
@@ -96,8 +95,10 @@ const ChatBox: React.FC<ChatBoxProps> = ({
   return (
     <div
       className={`${
-        isExpanded ? "w-[40vw] h-[99vh] bottom-0" : "w-100 h-130"
-      } bg-white rounded-3xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300 ease-in-out`}
+        isExpanded
+          ? "w-[40vw] h-screen bottom-0 rounded-l-3xl"
+          : "w-[30vw] h-[85vh] rounded-3xl"
+      } bg-white  shadow-2xl flex flex-col overflow-hidden transition-all duration-300 ease-in-out`}
     >
       <ChatBoxHeader
         language={language}
