@@ -1,6 +1,7 @@
 # ==========================================
 # ROOT & ENVIRONMENT
 # ==========================================
+# Environment Variables
 .env
 .env.local
 .env.*.local
@@ -48,8 +49,12 @@ backend/venv/
 backend/env/
 backend/chroma_db/
 backend/documents/*.pdf
-# If you ever copy the env into the backend folder:
 backend/.env
+backend/.env.local
+backend/.env.*.local
+backend/dist/
+backend/build/
+backend/*.egg-info/
 
 # ==========================================
 # TOOLS
