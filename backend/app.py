@@ -22,6 +22,17 @@ app.add_middleware(
 # Initialize RAG engine
 rag = RAGEngine()
 
+# Auto-process documents on startup if database is empty
+@app.on_event("startup")
+async def startup_event():
+    stats = rag.get_stats()
+    if stats['total_chunks'] == 0:
+        print("\n📂 Database is empty. Auto-processing documents...")
+        result = rag.process_all_documents()
+        print(f"✅ {result['message']}: {result['total_chunks']} chunks from {result['processed']} PDFs\n")
+    else:
+        print(f"\n✅ Database already loaded: {stats['total_chunks']} chunks from {stats['total_pdfs']} PDFs\n")
+
 class QuestionRequest(BaseModel):
     question: str
     top_k: Optional[int] = 5
