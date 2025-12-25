@@ -97,8 +97,8 @@ const ChatBox: React.FC<ChatBoxProps> = ({
       className={`${
         isExpanded
           ? "w-[40vw] h-screen bottom-0 rounded-l-3xl"
-          : "w-[31vw] h-[85vh] rounded-3xl"
-      } bg-white  shadow-2xl flex flex-col overflow-hidden transition-all duration-300 ease-in-out`}
+          : "w-screen h-screen md:w-[31vw] md:h-[85vh] rounded-3xl"
+      } bg-white shadow-2xl flex flex-col overflow-hidden transition-all duration-300 ease-in-out`}
     >
       <ChatBoxHeader
         language={language}

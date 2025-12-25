@@ -52,7 +52,7 @@ const ChatBoxHeader: React.FC<ChatBoxHeaderProps> = ({
       {/* Maximize and Close Icons */}
       <div className="flex space-x-3 text-gray-400">
         <div
-          className="w-5 h-5 cursor-pointer flex items-center justify-center"
+          className="w-5 h-5 cursor-pointer hidden md:flex items-center justify-center"
           onMouseEnter={() => setIsHoveringExpand(true)}
           onMouseLeave={() => setIsHoveringExpand(false)}
           onClick={onExpansionToggle} 
@@ -69,7 +69,7 @@ const ChatBoxHeader: React.FC<ChatBoxHeaderProps> = ({
             height={32}
           />
         </div>
-        <HiOutlineX onClick={onClose} className="w-6 h-6 p-0.5 text-component-gray cursor-pointer rounded-full" />
+        <HiOutlineX onClick={onClose} className="w-6 h-6 p-0.5 hidden md:inline-block text-component-gray cursor-pointer rounded-full" />
       </div>
     </header>
   );
