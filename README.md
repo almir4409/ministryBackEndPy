@@ -33,6 +33,7 @@ Setup your environment variables for the AI model and API access:
 2. Create a new file named `.env` in the project root folder.
 3. Copy the contents and add your specific credentials:
    - `OPENROUTER_API_KEY`: Your sk-or-v1 key.
+   - `MODEL_NAME`: The model you want to use from OpenRouter
    - `NEXT_PUBLIC_API_URL`: Set to http://localhost:8000.
 
 ### 3. Add Documents
