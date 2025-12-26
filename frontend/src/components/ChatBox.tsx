@@ -69,7 +69,6 @@ const ChatBox: React.FC<ChatBoxProps> = ({
         id: `assistant-${Date.now()}`,
         role: "assistant",
         content: data.answer,
-        sources: data.sources,
         createdAt: Date.now(),
       };
 
