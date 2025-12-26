@@ -58,8 +58,6 @@ const ChatBoxContent: React.FC<ChatBoxContentProps> = ({
           <div className="mt-5 space-y-3">
             {!showAllFaqs ? (
               <>
-
-
                 {/* FAQ Button - Styled exactly like the others */}
                 <button
                   onClick={() => setShowAllFaqs(true)}
@@ -67,7 +65,7 @@ const ChatBoxContent: React.FC<ChatBoxContentProps> = ({
                 >
                   <Image
                     className="bg-alt-bg-blue group-hover:bg-bg-light rounded-xl p-2"
-                    src="/stethoscope.svg"
+                    src="/faq.svg"
                     alt="Stethoscope"
                     width={32}
                     height={32}
