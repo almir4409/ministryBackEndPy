@@ -262,7 +262,7 @@ class RAGEngine:
                     {"role": "user", "content": user_prompt}
                 ],
                 max_tokens=800,
-                temperature=0.2,
+                temperature=0.1,
             )
             
             answer = completion.choices[0].message.content
