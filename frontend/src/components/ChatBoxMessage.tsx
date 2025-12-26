@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { HiOutlineUser } from "react-icons/hi";
-import ReactMarkdown from "react-markdown"; // 1. Import the library
+import ReactMarkdown from "react-markdown";
 import type { Message } from "../types/message";
 
 interface ChatBoxMessageProps {
@@ -24,11 +24,52 @@ const ChatBoxMessage: React.FC<ChatBoxMessageProps> = ({ message }) => {
           />
         </div>
 
-        <div className="bg-white rounded-lg max-w-[75%] border border-gray-300 p-4 text-gray-700 shadow-sm">
-          {/* 2. Use ReactMarkdown here */}
-          <div className="text-sm prose prose-slate max-w-none">
-            <ReactMarkdown>{message.content}</ReactMarkdown>
+        <div className="max-w-[75%]">
+          {/* Main Answer */}
+          <div className="bg-white rounded-lg border border-gray-300 p-4 text-gray-700 shadow-sm">
+            <div className="text-sm prose prose-slate max-w-none">
+              <ReactMarkdown>{message.content}</ReactMarkdown>
+            </div>
           </div>
+
+          {/* Sources with Relevance */}
+          {message.sources && message.sources.length > 0 && (
+            <div className="mt-3 p-3 bg-blue-50 border-l-4 border-blue-500 rounded-r-lg">
+              <div className="text-xs font-semibold text-blue-700 mb-2">
+                📚 Извори (подредени по релевантност):
+              </div>
+              <div className="space-y-2">
+                {message.sources.map((source, index) => {
+                  const relevancePercent = Math.round(source.relevance * 100);
+                  const rankEmoji = index === 0 ? "🥇" : index === 1 ? "🥈" : "🥉";
+                  const colorClass =
+                    relevancePercent > 80
+                      ? "text-green-600"
+                      : relevancePercent > 60
+                      ? "text-orange-600"
+                      : "text-red-600";
+
+                  return (
+                    <div
+                      key={index}
+                      className="text-xs text-gray-600 flex items-center gap-2"
+                    >
+                      <span>{rankEmoji}</span>
+                      <span className="font-medium">{source.pdf}</span>
+                      {source.article && (
+                        <span className="text-gray-500">
+                          - Член {source.article}
+                        </span>
+                      )}
+                      <span className={`font-bold ${colorClass}`}>
+                        ({relevancePercent}% точност)
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     );
